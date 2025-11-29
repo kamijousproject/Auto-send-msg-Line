@@ -1,0 +1,21 @@
+# ADB และ Android Automation
+# pure-python-adb==0.3.0.dev0  # ไม่จำเป็น - ใช้ ADB ที่มากับ LDPlayer
+# uiautomator2  # ไม่จำเป็น - ใช้ ADB โดยตรง
+
+# Image Recognition (optional - ถ้าต้องการ TapImg)
+# opencv-python==4.8.1.78
+# pillow==10.1.0
+
+# GUI (optional)
+# tk==0.1.0
+
+# Scheduling
+schedule==1.2.0
+python-dateutil==2.8.2
+
+# Utilities
+pyyaml==6.0.1
+requests==2.31.0
+
+# Logging
+colorlog==6.8.0

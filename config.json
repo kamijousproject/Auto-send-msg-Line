@@ -1,0 +1,30 @@
+{
+  "ldplayer": {
+    "ldconsole_path": "C:/LDPlayer/LDPlayer9/dnconsole.exe",
+    "adb_path": "C:/LDPlayer/LDPlayer9/adb.exe",
+    "emulator_name": "LDPlayer",
+    "emulator_index": "0",
+    "adb_host": "127.0.0.1",
+    "adb_port": 5555
+  },
+  "line": {
+    "package_name": "jp.naver.line.android",
+    "activity_name": "jp.naver.line.android.activity.SplashActivity",
+    "wait_timeout": 10
+  },
+  "automation": {
+    "target_friends_count": 3,
+    "message_delay_seconds": 2,
+    "retry_attempts": 3,
+    "screenshot_on_error": true
+  },
+  "scheduler": {
+    "check_interval_seconds": 30,
+    "timezone": "Asia/Bangkok"
+  },
+  "logging": {
+    "level": "INFO",
+    "log_to_file": true,
+    "log_file": "data/logs/automation.log"
+  }
+}

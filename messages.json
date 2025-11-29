@@ -1,0 +1,45 @@
+{
+  "message_templates": [
+    {
+      "id": 1,
+      "name": "สวัสดีตอนเช้า",
+      "content": "สวัสดีครับ ☀️\nวันนี้สบายดีไหม",
+      "enabled": true
+    },
+    {
+      "id": 2,
+      "name": "ทักทายทั่วไป",
+      "content": "สวัสดีครับ 👋",
+      "enabled": true
+    },
+    {
+      "id": 3,
+      "name": "ถามไถ่",
+      "content": "ว่างไหม มาคุยกัน",
+      "enabled": true
+    }
+  ],
+  "schedules": [
+    {
+      "id": 1,
+      "enabled": true,
+      "time": "09:00",
+      "days": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+      "message_template_id": 1,
+      "description": "ส่งข้อความตอนเช้าวันธรรมดา"
+    },
+    {
+      "id": 2,
+      "enabled": false,
+      "time": "14:00",
+      "days": ["saturday", "sunday"],
+      "message_template_id": 2,
+      "description": "ส่งข้อความตอนบ่ายวันหยุด"
+    }
+  ],
+  "target_friends": {
+    "mode": "first_n",
+    "count": 3,
+    "specific_names": []
+  }
+}
