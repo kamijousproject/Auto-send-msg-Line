@@ -701,14 +701,12 @@ class ModernGUI:
                 # ดูรายการทั้งหมด
                 devices = ldconsole.list_devices()
                 
-                # ดู ADB addresses
-                adb_result = ldconsole._run_command(["adb"])
+                # สร้าง ADB address map (port = 5555 + index)
                 adb_map = {}
-                for line in adb_result.strip().split('\n'):
-                    if ',' in line:
-                        parts = line.split(',')
-                        if len(parts) >= 3:
-                            adb_map[parts[0]] = parts[2].strip()
+                for device in devices:
+                    idx = device['index']
+                    adb_port = 5555 + int(idx)
+                    adb_map[idx] = f"127.0.0.1:{adb_port}"
                 
                 # Clear tree
                 for item in self.ld_tree.get_children():
@@ -1590,10 +1588,14 @@ class ModernGUI:
                 
                 ldconsole = LDConsoleController(ldconsole_path)
                 
-                # Get ADB address (แปลง index เป็น string)
+                # Get ADB address (แปลง index เป็ string)
                 index = str(self.selected_ld_index)
-                adb_result = ldconsole._run_command(["adb", "--index", index])
-                adb_addr = adb_result.strip().split(',')[-1].strip() if adb_result else None
+                
+                # ใช้ list2 เพื่อหา ADB port (port = 5555 + index)
+                adb_port = 5555 + int(index)
+                adb_addr = f"127.0.0.1:{adb_port}"
+                
+                self.log(f"🔌 ADB Address: {adb_addr}")
                 
                 if not adb_addr or ':' not in adb_addr:
                     self.log(f"❌ ไม่พบ ADB address สำหรับ {self.selected_ld_name}")
@@ -1683,9 +1685,11 @@ class ModernGUI:
                     try:
                         self.log(f"\n📱 กำลังส่งจาก {ld_name}...")
                         
-                        # Get ADB address (แปลง index เป็น string)
-                        adb_result = ldconsole._run_command(["adb", "--index", str(ld_index)])
-                        adb_addr = adb_result.strip().split(',')[-1].strip() if adb_result else None
+                        # Get ADB address (port = 5555 + index)
+                        adb_port = 5555 + int(ld_index)
+                        adb_addr = f"127.0.0.1:{adb_port}"
+                        
+                        self.log(f"  🔌 ADB Address: {adb_addr}")
                         
                         if not adb_addr or ':' not in adb_addr:
                             self.log(f"  ⚠️ ไม่พบ ADB address สำหรับ {ld_name}")

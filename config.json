@@ -1,6 +1,6 @@
 {
   "ldplayer": {
-    "ldconsole_path": "C:/LDPlayer/LDPlayer9/dnconsole.exe",
+    "ldconsole_path": "C:/LDPlayer/LDPlayer9/ldconsole.exe",
     "adb_path": "C:/LDPlayer/LDPlayer9/adb.exe",
     "emulator_name": "LDPlayer",
     "emulator_index": "0",
